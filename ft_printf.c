@@ -1,23 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/15 17:14:31 by carlopez          #+#    #+#             */
+/*   Updated: 2024/10/15 17:23:36 by carlopez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "printf.h"
 
 static int	ft_check_types(char c, va_list args)
 {
-	unsigned int	num;
-
-	num = 0;
 	if (c == 'c')
 		return (ft_print_char(va_arg(args, int)));
 	else if (c == 's')
 		return (ft_print_str(va_arg(args, char *)));
 	else if (c == 'd' || c == 'i')
-		return (ft_print_number(va_arg(args, int)));
+		return (ft_print_num(va_arg(args, int)));
 	else if (c == 'u')
+		return (ft_print_unsgn_num(va_arg(args, int)));
+	else if (c == 'x')
+		return (ft_print_hex(va_arg(args, int), 0));
+	else if (c == 'X')
+		return (ft_print_hex(va_arg(args, int), 1));
+	else if (c == 'p')
 	{
-		num = (unsigned int)va_arg(args, int);
-		/*if (num < 0)
-			num *= -1;*/
-		return (ft_print_number(num));
+		if (va_arg(args, long) == 0)
+			return (ft_print_str("(nil)"));
+		write(1, "0x", 2);
+		return (2 + ft_print_void(va_arg(args, long)));
 	}
 	else if (c == '%')
 	{
