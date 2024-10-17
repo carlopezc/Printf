@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:13:37 by carlopez          #+#    #+#             */
-/*   Updated: 2024/10/17 13:25:49 by carlopez         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:37:17 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static int	ft_isalpha(int c)
 	return (0);
 }
 
-static void	ft_print_uppercase(char c)
+static int	ft_print_uppercase(char c)
 {
 	if (ft_isalpha(c))
 		c = c - 32;
-	write(1, &c, 1);
+	return (ft_print_char(c));
 }
 
-int	ft_print_hex(unsigned int number, int flag)
+int	ft_print_hex(unsigned long number, int flag)
 {
 	char	towrite;
 	int		len;
@@ -40,12 +40,18 @@ int	ft_print_hex(unsigned int number, int flag)
 	else
 		towrite = number % 16 + '0';
 	if (flag == 0)
-		write (1, &towrite, 1);
+	{
+		if (ft_print_char(towrite) == -1)
+			return (-1);
+	}
 	else if (flag == 1)
-		ft_print_uppercase(towrite);
+	{
+		if (ft_print_uppercase(towrite) == -1)
+			return (-1);
+	}
 	return (len);
 }
-
+/*
 int	ft_print_void(unsigned long address)
 {
 	char	towrite;
@@ -59,6 +65,8 @@ int	ft_print_void(unsigned long address)
 		towrite = ((address % 16) - 10) + 'a';
 	else
 		towrite = address % 16 + '0';
-	write (1, &towrite, 1);
+	if (ft_print_char(towrite) == -1)
+		return (-1);
 	return (len);
 }
+*/
