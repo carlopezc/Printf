@@ -4,11 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = printflibft.a
 
-<<<<<<< HEAD
 SRC = ft_printf.c ft_print_types.c ft_print_types2.c
-=======
-SRC = ft_printf.c ft_print_types.c ft_print_types2.c ft_isalpha.c
->>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 
 AR = ar rcs
 LIB = printf.h
