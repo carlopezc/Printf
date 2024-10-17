@@ -6,7 +6,11 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:31 by carlopez          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/10/17 13:53:59 by carlopez         ###   ########.fr       */
+=======
+/*   Updated: 2024/10/15 17:23:36 by carlopez         ###   ########.fr       */
+>>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +47,15 @@ static int	ft_check_types(char c, va_list args)
 
 int	ft_printf(char const *c, ...)
 {
+<<<<<<< HEAD
 	va_list	args;
 	int		i;
 	int		len;
+=======
+	va_list args;
+	int	i;
+	int	len;
+>>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 
 	va_start(args, c);
 	i = 0;

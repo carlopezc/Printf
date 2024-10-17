@@ -6,12 +6,17 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:13:37 by carlopez          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/10/17 13:19:50 by carlopez         ###   ########.fr       */
+=======
+/*   Updated: 2024/10/15 17:52:20 by carlopez         ###   ########.fr       */
+>>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h" 
 
+<<<<<<< HEAD
 int	ft_print_char(char c)
 {
 	write (1, &c, 1);
@@ -32,6 +37,10 @@ int	ft_print_str(char *s)
 
 int	ft_print_unsgn_num(unsigned int number)
 {
+=======
+int	ft_print_unsgn_num(unsigned int number)
+{	
+>>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 	int	len;
 	int	num;
 
@@ -47,7 +56,11 @@ int	ft_print_unsgn_num(unsigned int number)
 int	ft_print_num(int number)
 {
 	char	num;
+<<<<<<< HEAD
 	int		len;
+=======
+	int	len;
+>>>>>>> 2deb3ddaf405b7a8b4a75840e7ab1273527da3ae
 
 	len = 0;
 	if (number == -2147483648)
