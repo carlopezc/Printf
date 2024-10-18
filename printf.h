@@ -20,7 +20,7 @@ int	ft_printf(char const *c, ...);
 int	ft_print_char(char c);
 int	ft_print_str(char *s);
 int	ft_print_num(int number);
-int	ft_print_hex(unsigned long number, int flag);
+int	ft_print_hex(unsigned int number, int flag);
 int	ft_print_unsgn_num(unsigned int number);
 int	ft_print_void(unsigned long address);
 

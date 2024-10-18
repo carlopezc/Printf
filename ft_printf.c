@@ -12,14 +12,16 @@
 
 #include "printf.h"
 
-static int	ft_check_void(char c, va_list args)
+static int	ft_check_void(va_list args)
 {
-	(void)c;
-	if (va_arg(args, long) == 0)
+	long	arg;
+
+	arg = va_arg(args, unsigned long);
+	if (arg == 0)
 		return (ft_print_str("(nil)"));
 	if (ft_print_str("0x") == -1)
 		return (-1);
-	return (2 + ft_print_hex(va_arg(args, long), 0));
+	return (2 + ft_print_void(arg));
 }
 
 static int	ft_check_types(char c, va_list args)
@@ -33,11 +35,11 @@ static int	ft_check_types(char c, va_list args)
 	else if (c == 'u')
 		return (ft_print_unsgn_num(va_arg(args, int)));
 	else if (c == 'x')
-		return (ft_print_hex(va_arg(args, int), 0));
+		return (ft_print_hex(va_arg(args, unsigned int), 0));
 	else if (c == 'X')
-		return (ft_print_hex(va_arg(args, int), 1));
+		return (ft_print_hex(va_arg(args, unsigned int), 1));
 	else if (c == 'p')
-		return (ft_check_void(c, args));
+		return (ft_check_void(args));
 	else if (c == '%')
 	{
 		if (ft_print_char('%') == -1)

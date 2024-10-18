@@ -26,7 +26,7 @@ static int	ft_print_uppercase(char c)
 	return (ft_print_char(c));
 }
 
-int	ft_print_hex(unsigned long number, int flag)
+int	ft_print_hex(unsigned int number, int flag)
 {
 	char	towrite;
 	int		len;
@@ -51,7 +51,7 @@ int	ft_print_hex(unsigned long number, int flag)
 	}
 	return (len);
 }
-/*
+
 int	ft_print_void(unsigned long address)
 {
 	char	towrite;
@@ -69,4 +69,3 @@ int	ft_print_void(unsigned long address)
 		return (-1);
 	return (len);
 }
-*/
