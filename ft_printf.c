@@ -65,7 +65,7 @@ int	ft_printf(char const *c, ...)
 		if (c[i] == '%' && c[i + 1])
 			len_check = ft_check_types(c[++i], args);
 		else if (c[i] == '%' && c[i + 1] == '\0')
-			len = -1;
+			len_check = -1;
 		else
 			len_check = ft_print_char(c[i]);
 		if (len_check == -1)
