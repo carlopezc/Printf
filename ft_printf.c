@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:31 by carlopez          #+#    #+#             */
-/*   Updated: 2024/10/17 19:36:31 by carlopez         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:44:28 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_check_types(char c, va_list args)
 	else if (c == 'd' || c == 'i')
 		return (ft_print_num(va_arg(args, int)));
 	else if (c == 'u')
-		return (ft_print_unsgn_num(va_arg(args, int)));
+		return (ft_print_unsgn_num(va_arg(args, unsigned int)));
 	else if (c == 'x')
 		return (ft_print_hex(va_arg(args, unsigned int), 0));
 	else if (c == 'X')
@@ -63,22 +63,15 @@ int	ft_printf(char const *c, ...)
 	while (c[i])
 	{
 		if (c[i] == '%' && c[i + 1])
-		{
 			len_check = ft_check_types(c[++i], args);
-			if (len_check == -1)
-				len = -1;
-			else
-				len = len + len_check;
-		}
+		else if (c[i] == '%' && c[i + 1] == '\0')
+			len = -1;
 		else
-		{
-			if (ft_print_char(c[i]) == -1)
-				len = -1;
-			else
-				len++;
-		}
-		if (len == -1)
-			break ;
+			len_check = ft_print_char(c[i]);
+		if (len_check == -1)
+			len = -1;
+		else
+			len = len + len_check;
 		i++;
 	}
 	va_end(args);

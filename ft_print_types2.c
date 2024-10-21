@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:13:37 by carlopez          #+#    #+#             */
-/*   Updated: 2024/10/17 18:38:15 by carlopez         ###   ########.fr       */
+/*   Updated: 2024/10/21 13:12:04 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int	ft_print_char(char c)
 {
-	if (write (1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	return (write(1, &c, 1));
 }
 
 int	ft_print_str(char *s)
@@ -28,7 +26,7 @@ int	ft_print_str(char *s)
 	i = 0;
 	while (s[i])
 		if (ft_print_char(s[i++]) == -1)
-				return (-1);
+			return (-1);
 	return (i);
 }
 
