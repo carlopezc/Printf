@@ -6,11 +6,12 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:31 by carlopez          #+#    #+#             */
-/*   Updated: 2024/10/21 13:44:28 by carlopez         ###   ########.fr       */
+/*   Updated: 2024/10/22 13:16:06 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
+#include <stdio.h>
 
 static int	ft_check_void(va_list args)
 {
@@ -41,11 +42,7 @@ static int	ft_check_types(char c, va_list args)
 	else if (c == 'p')
 		return (ft_check_void(args));
 	else if (c == '%')
-	{
-		if (ft_print_char('%') == -1)
-			return (-1);
-		return (1);
-	}
+		return (ft_print_char('%'));
 	return (0);
 }
 
@@ -65,13 +62,12 @@ int	ft_printf(char const *c, ...)
 		if (c[i] == '%' && c[i + 1])
 			len_check = ft_check_types(c[++i], args);
 		else if (c[i] == '%' && c[i + 1] == '\0')
-			len = -1;
+			return (-1);
 		else
 			len_check = ft_print_char(c[i]);
 		if (len_check == -1)
-			len = -1;
-		else
-			len = len + len_check;
+			return (-1);
+		len = len + len_check;
 		i++;
 	}
 	va_end(args);

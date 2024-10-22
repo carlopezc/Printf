@@ -3,7 +3,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = printflibft.a
+NAME = libftprintf.a
 
 SRC = ft_printf.c ft_print_types.c ft_print_types2.c
 
