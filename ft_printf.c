@@ -6,7 +6,7 @@
 /*   By: carlopez <carlopez@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 17:14:31 by carlopez          #+#    #+#             */
-/*   Updated: 2024/10/22 13:29:59 by carlopez         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:28:24 by carlopez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,22 @@ int	ft_printf(char const *c, ...)
 	int		len;
 	int		len_check;
 
+	if (!c)
+		return (-1);
 	va_start(args, c);
-	i = 0;
+	i = -1;
 	len = 0;
-	len_check = 0;
-	while (c[i])
+	while (c[++i] && len > -1)
 	{
 		if (c[i] == '%' && c[i + 1])
 			len_check = ft_check_types(c[++i], args);
 		else if (c[i] == '%' && c[i + 1] == '\0')
-			return (-1);
+			len_check = -1;
 		else
 			len_check = ft_print_char(c[i]);
 		if (len_check == -1)
-			return (-1);
+			len = 0;
 		len = len + len_check;
-		i++;
 	}
 	va_end(args);
 	return (len);
